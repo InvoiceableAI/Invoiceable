@@ -1,17 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Invoiceable</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: 'Archivo', sans-serif;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .step {
+            max-width: 700px;
+            margin: 50px auto 25px auto;
+            border: 1.5px solid #EBEBEB;
+            padding: 10px 25px;
+            border-radius: 5px;
+            min-width: 300px;
+        }
+
+        input[type=file] {
+            width: 100%;
+            background: #EBEBEB;
+            padding: 10px 25px;
+            border-radius: 5px;
+        }
+
+        input[type=text] {
+            width: 100%;
+            border: 2px solid #EBEBEB;
+            border-radius: 5px;
+            font-size: 1em;
+            padding: 10px 25px;
+        }
+
+        input[type=text]:focus {
+            border: 2px solid #006CFF;
+        }
+
+        button {
+            display: block;
+            padding: 10px 25px;
+            background: #006CFF;
+            border: 0;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-top: 10px;
+            cursor: pointer;
+            color: white;
+        }
+
+        button[disabled],
+        input[disabled] {
+            background: #BDBDBD;
+            cursor: not-allowed;
+            color: white;
+        }
+
+        input[disabled] {
+            border: 2px solid #BDBDBD;
+        }
+
+        button:not([disabled]):hover {
+            background: #0038FF;
+        }
+
+        button:not([disabled]):active {
+            background: #001768;
+        }
+
+        .results {
+            background: #01B200;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+        }
+
+        .thinking {
+            background: #0066E4;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            animation: thinking 1s linear infinite;
+        }
+        
+        @keyframes thinking {
+            0%, 100% {
+                opacity: 100%;
+            }
+            50% {
+                opacity: 75%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Upload invoice</h1>
-    <form action="invoice" enctype="multipart/form-data" method="post">
-        <p>File:</p>
-        <input type="file" required name="file">
+    <div class="step" id="step1">
+        <h1>Step 1: Upload your Invoice</h1>
+        <input type="file" required name="file" oninput="document.getElementById('nextBtn').style.display='block';" accept=".pdf,.png,.jpg,.jpeg,.gif" id="file">
+        <button id="nextBtn" class="next hidden" onclick="document.getElementById('step1').style.display='none';document.getElementById('step2').style.display='block';">Next</button>
+    </div>
+    <div class="step hidden" id="step2">
+        <h1>Step 2: Ask Invoiceable</h1>
         <p>Question:</p>
-        <input type="text" required name="question">
-        <button type="submit">Ask Invoiceable</button>
-    </form>
-</body>
-</html>
+        <form onsubmit="return ask();">
+            <input type="text" id="question" required placeholder="What is the Invoice ID?">
+            <button type="submit">Ask</button>
+        </form>
+        <p class="thinking hidden" id="thinking">Hmm... Let met think...</p>
+        <p class="results hidden" id="results"></p>
+    </div>
+    <script>
+        function ask() {
+            var xhr = new XMLHttpRequest();
+            document.getElementById('thinking').classList.remove('hidden');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var results = document.getElementById('results');
+                    results.classList.remove('hidden');
+                    document.getElementById('thinking').classList.add('hidden');
+                    results.innerText = xhr.responseText;
+                }
+            }
+            xhr.open('POST', '/invoice');
+            var data = new FormData();
+            data.append('file', document.getElementById('file').files[0])
+            data.append('question', document.getElementById('question').value)
+            xhr.send(data);
+            return false;
+        }
+    </script>
+</body></html>
