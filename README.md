@@ -66,5 +66,4 @@ Congratulations, you've successfully started your own Invoiceable instance!
 ## Credits
 
 * [`impira/layoutlm-document-qa`](https://huggingface.co/impira/layoutlm-document-qa)
-* [`Multipage PDF to JPEG Image Conversion in Python
-`](https://mtyurt.net/post/2019/multipage-pdf-to-jpeg-image-in-python.html)
+* [`Multipage PDF to JPEG Image Conversion in Python`](https://mtyurt.net/post/2019/multipage-pdf-to-jpeg-image-in-python.html)
