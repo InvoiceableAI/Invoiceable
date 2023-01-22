@@ -67,3 +67,9 @@ Congratulations, you've successfully started your own Invoiceable instance!
 
 * [`impira/layoutlm-document-qa`](https://huggingface.co/impira/layoutlm-document-qa)
 * [`Multipage PDF to JPEG Image Conversion in Python`](https://mtyurt.net/post/2019/multipage-pdf-to-jpeg-image-in-python.html)
+
+## License
+
+Invoiceable is currently released under a non-commercial personal use only license. The authors/creators/contributors of Invoiceable may modify this license in the future.
+
+Attribution to Invoiceable may not be removed and Invoiceable may not be run on a public instance without prior written consent from the authors of Invoiceable.

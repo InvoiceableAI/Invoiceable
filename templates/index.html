@@ -81,6 +81,10 @@
             background: #001768;
         }
 
+        a {
+            color: #0038FF;
+        }
+
         .results {
             background: #01B200;
             color: white;
@@ -116,6 +120,7 @@
         <h1>Step 1: Upload your Invoice</h1>
         <input type="file" required name="file" oninput="document.getElementById('nextBtn').style.display='block';" accept=".pdf,.png,.jpg,.jpeg,.gif" id="file">
         <button id="nextBtn" class="next hidden" onclick="document.getElementById('step1').style.display='none';document.getElementById('step2').style.display='block';">Next</button>
+        <p>The information may not be accurate. Do not rely upon Invoiceable as a reliable data source. Invoiceable takes no liability for any damage or mistakes caused through the use of this software. <b><a href="https://github.com/fakerybakery/Invoiceable">Invoiceable is open sourced! Check out the GitHub project!</a></b></p>
     </div>
     <div class="step hidden" id="step2">
         <h1>Step 2: Ask Invoiceable</h1>
@@ -126,7 +131,7 @@
         </form>
         <p class="thinking hidden" id="thinking">Hmm... Let me think...</p>
         <p class="results hidden" id="results"></p>
-        <p>The information may not be accurate. Do not rely upon Invoiceable as a reliable data source. Invoiceable takes no liability for any damage or mistakes caused through the use of this software.</p>
+        <p>The information may not be accurate. Do not rely upon Invoiceable as a reliable data source. Invoiceable takes no liability for any damage or mistakes caused through the use of this software. <b><a href="https://github.com/fakerybakery/Invoiceable">Invoiceable is open sourced! Check out the GitHub project!</a></b></p>
     </div>
     <script>
         function ask() {
