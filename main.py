@@ -3,10 +3,8 @@ import flask
 import os
 from flask import Flask, render_template, request, session, redirect, url_for
 from waitress import serve
-from dotenv import load_dotenv
 from werkzeug.utils import secure_filename
 from pdf2image import convert_from_path
-import html
 import uuid
 import tempfile
 from PIL import Image
