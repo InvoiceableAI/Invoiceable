@@ -16,7 +16,7 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg', 'gif', 'tiff'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-#https://mtyurt.net/post/2019/multipage-pdf-to-jpeg-image-in-python.html
+# https://mtyurt.net/post/2019/multipage-pdf-to-jpeg-image-in-python.html
 
 def convert_pdf(file_path, output_path):
     # save temp image files in temp dir, delete them after we are finished
@@ -92,5 +92,5 @@ def upload():
 
 #            return redirect(url_for('upload', name=filename))
 
-print('Server started.')
-serve(app, host='0.0.0.0', port=80)
+print('Server started!')
+serve(app, host='0.0.0.0', port=2717)
