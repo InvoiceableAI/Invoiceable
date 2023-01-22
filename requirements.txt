@@ -4,3 +4,4 @@ werkzeug
 pdf2image
 tempfile
 pillow
+pytesseract
