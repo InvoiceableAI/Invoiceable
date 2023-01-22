@@ -127,12 +127,12 @@
         function ask() {
             var xhr = new XMLHttpRequest();
             document.getElementById('thinking').classList.remove('hidden');
+            document.getElementById('results').classList.add('hidden');
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    var results = document.getElementById('results');
-                    results.classList.remove('hidden');
+                    document.getElementById('results').classList.remove('hidden');
                     document.getElementById('thinking').classList.add('hidden');
-                    results.innerText = xhr.responseText;
+                    document.getElementById('results').innerText = xhr.responseText;
                 }
             }
             xhr.open('POST', '/invoice');
