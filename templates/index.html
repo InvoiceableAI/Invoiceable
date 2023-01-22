@@ -95,15 +95,19 @@
             border-radius: 5px;
             animation: thinking 1s linear infinite;
         }
-        
+
         @keyframes thinking {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 100%;
             }
+
             50% {
                 opacity: 75%;
             }
         }
+
     </style>
 </head>
 
@@ -118,7 +122,7 @@
         <p>Question:</p>
         <form onsubmit="return ask();">
             <input type="text" id="question" required placeholder="What is the Invoice ID?">
-            <button type="submit">Ask</button>
+            <button type="submit" id="askbtn">Ask</button>
         </form>
         <p class="thinking hidden" id="thinking">Hmm... Let me think...</p>
         <p class="results hidden" id="results"></p>
@@ -128,12 +132,16 @@
         function ask() {
             var xhr = new XMLHttpRequest();
             document.getElementById('thinking').classList.remove('hidden');
+            document.getElementById('question').setAttribute('disabled', true);
+            document.getElementById('askbtn').setAttribute('disabled', true);
             document.getElementById('results').classList.add('hidden');
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     document.getElementById('results').classList.remove('hidden');
                     document.getElementById('thinking').classList.add('hidden');
                     document.getElementById('results').innerText = xhr.responseText;
+                    document.getElementById('question').removeAttribute('disabled');
+                    document.getElementById('askbtn').removeAttribute('disabled');
                 }
             }
             xhr.open('POST', '/invoice');
@@ -143,5 +151,8 @@
             xhr.send(data);
             return false;
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
