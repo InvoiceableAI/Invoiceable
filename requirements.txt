@@ -5,3 +5,4 @@ pdf2image
 pillow
 pytesseract
 transformers
+torch
