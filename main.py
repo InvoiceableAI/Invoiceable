@@ -10,7 +10,7 @@ import tempfile
 from PIL import Image
 from transformers import pipeline
 print('Starting pipeline...')
-nlp = pipeline("document-question-answering", model="impira/layoutlm-document-qa", device="mps")
+nlp = pipeline("document-question-answering", model="impira/layoutlm-document-qa")
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg', 'gif', 'tiff'}
