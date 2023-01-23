@@ -4,3 +4,4 @@ werkzeug
 pdf2image
 pillow
 pytesseract
+transformers
