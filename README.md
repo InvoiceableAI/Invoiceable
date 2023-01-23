@@ -19,7 +19,7 @@ Invoiceable is an educational project and should not be relied on. Do not expect
 
 **Do not rely on Invoiceable because it is often inaccurate.**
 
-If you find a mistake, don't contact the authors/maintainers of Invoiceable. Invoiceable did not create or train the AI model used in this program.
+If Invoiceable returns an incorrect response, please don't contact the authors/maintainers of Invoiceable. Invoiceable did not create or train the AI model used in this program.
 
 ## Requirements
 
