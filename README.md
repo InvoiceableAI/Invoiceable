@@ -2,7 +2,14 @@
 
 # Invoiceable
 
+<details>
+
+<summary>Watch the Demo Video</summary>
+
 [Watch the Demo](https://user-images.githubusercontent.com/76186054/213948096-b31d0963-6fd3-4938-a613-afdb1138b5d4.mp4)
+
+</details>
+
 
 ## Introduction
 
