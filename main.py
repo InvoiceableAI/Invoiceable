@@ -86,6 +86,7 @@ def upload():
                 file.save(os.path.join('uploads', filename))
             answers = nlp('uploads/' + filename, question)
             if len(answers) == 0:
+                os.remove(os.path.join(os.getcwd(), 'uploads/' + filename))
                 return 'Sorry, I can\'t find the answer for that question. Please try again with a different document.'
             answer = answers[0]
             os.remove(os.path.join(os.getcwd(), 'uploads/' + filename))
