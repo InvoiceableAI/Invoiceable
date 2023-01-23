@@ -85,6 +85,8 @@ def upload():
                 filename = secure_filename(filename)
                 file.save(os.path.join('uploads', filename))
             answers = nlp('uploads/' + filename, question)
+            if len(answers) == 0:
+                return 'Sorry, I can\'t find the answer for that question. Please try again with a different document.'
             answer = answers[0]
             os.remove(os.path.join(os.getcwd(), 'uploads/' + filename))
             return 'I am ' + str(answer['score'] * 100) + '% sure that the answer is: ' + str(answer['answer']) + '.'
