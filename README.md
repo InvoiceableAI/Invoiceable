@@ -33,6 +33,8 @@ There's not much that you need to run Invoiceable!
 
 * [Git](https://git-scm.com/)
 
+* [Flask](https://flask.palletsprojects.com/)
+
 ## Installation/Usage
 
 Installation is very simple. Run the following commands in Terminal or PowerShell:
