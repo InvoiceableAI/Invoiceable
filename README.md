@@ -84,5 +84,3 @@ Congratulations, you've successfully started your own Invoiceable instance!
 ## License
 
 Please refer to the `LICENSE` file for licensing information.
-
-Copyright &copy; 2023 mrfakename. All rights reserved.
